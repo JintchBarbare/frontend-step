@@ -1,0 +1,184 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    background-color: none;
+    background: none;
+    border: none;
+}
+
+button,
+input {
+    cursor: pointer;
+}
+
+img {
+    width: 100%;
+}
+
+/*---------------------------------header---------------------------------*/
+header {
+    border-bottom: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background-color: black;
+}
+
+header img {
+    width: 250px;
+    height: 150px;
+}
+
+header nav {
+    display: flex;
+    gap: 80px;
+    align-items: flex-end;  
+}
+
+header nav a {
+    color: rgba(226, 235, 243, 0.888);
+    font-size: 25px;
+    transition: 0.2s;
+}
+
+/*---------------------------------main---------------------------------*/
+
+body {
+    background-color: #c8c1c1;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    color: black;
+}
+
+
+/*---------------------------------History---------------------------------*/
+
+.History{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 60px 40px;
+    background-color: #c8c1c1;
+}
+
+.movie-image img{
+    width: 600px;
+    border-radius: 15px;
+}
+
+.right-side{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.titles{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.titles h2,
+.titles h3{
+    font-size: 42px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.titles h3{
+    max-width: 350px;
+}
+
+.text{
+    max-width: 700px;
+}
+
+
+/*---------------------------------Evolution---------------------------------*/
+
+.evolution{
+    padding: 60px 40px;
+    background-color: #c8c1c1;
+    text-align: center;
+}
+
+.evolution h2{
+    font-size: 42px;
+    margin-bottom: 40px;
+}
+
+.cars{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.car{
+    width: 350px;
+}
+
+.car img{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.car p{
+    margin-top: 15px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+/*---------------------------------Founder---------------------------------*/
+
+.Founder{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 40px;
+    background-color: #c8c1c1;
+    gap: 40px;
+}
+
+.text1{
+    max-width: 700px;
+}
+
+.text1 h2{
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.text1 p,
+.text p{
+    font-size: 20px;
+    line-height: 1.7;
+}
+
+.found-img img{
+    width: 600px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+
+/*---------------------------------footer---------------------------------*/
+footer {
+    background-color: black;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+}
+
+h6 {
+    color: wheat;
+    font-size: 18px;    
+}
