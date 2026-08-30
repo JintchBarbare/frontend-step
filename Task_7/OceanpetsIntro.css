@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    background: none;
+    border: none;
+    font-family: "Elms Sans", sans-serif;
+}
+
+button, input {
+    cursor: pointer;
+}
+
+img {
+    width: 100%;
+}
+
+body {
+    
+    background: url(https://static.vecteezy.com/system/resources/previews/005/379/418/non_2x/silhouette-of-coral-reef-with-dolphin-shark-stingray-turtle-and-shipwrecks-on-the-blue-seabed-underwater-background-illustration-vector.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+/*---------------------------------header---------------------------------*/
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32px 40px;
+}
+
+header > a {
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: #c2c2c2;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ffffff;
+}
+
+
+
+/*---------------------------------home---------------------------------*/
+#home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 85vh;
+    gap: 0px;
+    text-align: center;
+    max-width: 100%;
+}
+
+#home > a:first-of-type svg{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 145px;
+  height: 145px;
+  border-radius: 50%;
+  margin-bottom: 40px;
+  transition: transform 0.2s ease;
+}
+
+#home > a:first-of-type:hover {
+  transform: scale(1.1); 
+}
+
+#home div {
+  max-width: 800px;
+  align-items: center; 
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+#home h1 {
+  font-size: 60px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #ffffff;
+  opacity: 0.9;
+  line-height: 1.2;
+  margin: 0 0 160px 0; 
+  width: max-content;
+  max-width: 90vw;
+
+  -webkit-mask-image: linear-gradient(
+    to right, 
+    transparent 0%, 
+    #fff 20%, 
+    #fff 80%, 
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right, 
+    transparent 0%, 
+    #fff 20%, 
+    #fff 80%, 
+    transparent 100%
+  );
+}
+
+#home h6 {
+  font-size: 14px;
+  letter-spacing: 5px; 
+  text-transform: uppercase;
+  color: #ffffff;
+  opacity: 0.9;
+  margin: 0;
+}
+
+#home > a:last-of-type svg {
+  margin-top: 15px; 
+  display: inline-block;
+  animation: bounce 2s infinite; 
+  width: 20px;
+  height: 20px;
+}
+
+
+
+/*---------------------------------about---------------------------------*/
+#about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    gap: 90px;
+}
+
+#about img {
+    max-width: 400px;
+}
+
+#about div {
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+}
+
+#about button {
+    color: white;
+    border: 1px solid white;
+    padding: 12px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(90deg, 
+                rgba(100, 120, 170, 0) 0%,
+                rgba(220, 130, 0, 0.9) 50%,
+                rgba(100, 120, 170, 0) 100%);
+}
+
+#about button svg {
+    transform: rotate(90deg);
+}
+
+
+
+/*---------------------------------roadmap---------------------------------*/
+
+#roadmap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+    min-height: 100vh;
+}
+
+.roadmap-header {
+    text-align: left;
+    max-width: 1200px;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.roadmap-header h1 {
+    font-family: 'Impact', sans-serif;
+    font-size: 56px;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.roadmap-header p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 800px;
+}
+
+.roadmap-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 30px; 
+    max-width: 1200px;
+    width: 100%;
+}
+
+.roadmap-card {
+    background: rgba(255, 255, 255, 0.08); 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    border-radius: 16px;
+    padding: 40px;
+}
+
+.roadmap-card h2 {
+    font-size: 28px;
+    color: white;
+    margin-bottom: 30px;
+    font-family: 'Impact', sans-serif;
+}
+
+.points-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px 30px; 
+    padding: 0;
+    margin: 0;
+}
+
+.points-list li {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 15px;
+    line-height: 1.4;
+    position: relative;
+    padding-left: 30px; 
+}
+
+.points-list li::before {
+    content: "✓✓";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/*---------------------------------wildlife---------------------------------*/
+#wildlife {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    min-height: 100vh;
+}
+
+#wildlife h1 {
+    font-size: 48px;
+    font-weight: 900;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 30px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.card img {
+    max-width: 200px;
+    height: 180px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
