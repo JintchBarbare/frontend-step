@@ -1,0 +1,103 @@
+@use "sass:color";
+
+$primary:   #0d6efd;
+$secondary: #6c757d;
+$success:   #198754;
+$danger:    #dc3545;
+$warning:   #ffc107;
+$info:      #0dcaf0;
+$light:     #f8f9fa;
+$dark:      #212529;
+
+$text-light: #ffffff;
+$text-dark:  #000000;
+
+$btn-padding-y: 0.55rem;
+$btn-padding-x: 1.05rem;
+$btn-radius:    0.375rem;
+$btn-font-size: 1rem;
+
+%btn-base {
+    display: inline-block;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: $btn-font-size;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: $btn-padding-y $btn-padding-x;
+    border-radius: $btn-radius;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+@mixin button-variant($bg-color, $text-color: $text-light) {
+    @extend %btn-base;
+    background-color: $bg-color;
+    color: $text-color;
+
+    &:hover {
+        background-color: color.adjust($bg-color, $lightness: -7%);
+    }
+
+    &:active {
+        background-color: color.adjust($bg-color, $lightness: -11%);
+    }
+
+    &:focus-visible {
+        outline: 0;
+        box-shadow: 0 0 0 0.25rem rgba($bg-color, 0.4);
+    }
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    align-items: center;
+}
+
+.btn-primary {
+    @include button-variant($primary);
+}
+
+.btn-secondary {
+    @include button-variant($secondary);
+}
+
+.btn-success {
+    @include button-variant($success);
+}
+
+.btn-danger {
+    @include button-variant($danger);
+}
+
+.btn-warning {
+    @include button-variant($warning, $text-dark);
+}
+
+.btn-info {
+    @include button-variant($info, $text-dark);
+}
+
+.btn-light {
+    @include button-variant($light, $text-dark);
+}
+
+.btn-dark {
+    @include button-variant($dark);
+}
