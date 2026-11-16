@@ -1,0 +1,198 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #f6f8fb;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.doctor-card-wrapper {
+    position: relative;
+    width: 480px;
+    height: 580px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arch-outline {
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 516px;
+    height: 550px;
+    border: 1.5px solid #e6ebf2;
+    border-bottom: none;
+    border-radius: 260px 260px 0 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.arch-image-box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 240px 240px 20px 20px;
+    overflow: hidden;
+    background-color: #e9ecef;
+    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+    z-index: 2;
+}
+
+.arch-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+}
+
+.floating-badge {
+    position: absolute;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 14px 35px rgba(15, 23, 42, 0.1);
+    border: 1px solid rgba(226, 232, 240, 0.7);
+    z-index: 3;
+}
+
+.badge-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #64748b;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.badge-urgent {
+    top: 68px;
+    left: -58px;
+    padding: 16px 22px;
+}
+
+.badge-content {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.icon-phone {
+    width: 17px;
+    height: 17px;
+    color: #1e293b;
+}
+
+.phone-number {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+    text-decoration: none;
+}
+
+.badge-trust {
+    bottom: -24px;
+    left: 24px;
+    padding: 15px 24px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.icon-outline {
+    width: 19px;
+    height: 19px;
+    color: #1e293b;
+}
+
+.divider {
+    width: 1px;
+    height: 22px;
+    background-color: #e2e8f0;
+}
+
+.badge-available {
+    bottom: -42px;
+    right: -36px;
+    padding: 15px 22px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.status-dot-wrapper {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #dcfce7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.status-dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background-color: #22c55e;
+}
+
+.available-info .badge-label {
+    margin-bottom: 3px;
+}
+
+.available-time {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+@media (max-width: 640px) {
+    .doctor-card-wrapper {
+        width: 320px;
+        height: 410px;
+    }
+
+    .arch-outline {
+        width: 344px;
+        height: 390px;
+    }
+
+    .badge-urgent {
+        top: 25px;
+        left: -15px;
+        padding: 12px 16px;
+    }
+
+    .badge-trust {
+        bottom: -20px;
+        left: 10px;
+        padding: 12px 16px;
+        gap: 12px;
+    }
+
+    .badge-available {
+        bottom: -75px;
+        right: 10px;
+        padding: 12px 16px;
+    }
+}
