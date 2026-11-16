@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>წიგნების კატალოგი</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header-content">
+            <h1>BookStore</h1>
+            <div class="cart-badge">
+                კალათა: <span id="cart-count">0</span> წიგნი | <span id="cart-total">0</span> ₾
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="filters-panel">
+            <input type="text" id="search-input" placeholder="ძებნა სათაურით ან ავტორით...">
+
+            <select id="genre-select">
+                <option value="all">ყველა ჟანრი</option>
+                <option value="ფანტასტიკა">ფანტასტიკა</option>
+                <option value="კლასიკა">კლასიკა</option>
+                <option value="დეტექტივი">დეტექტივი</option>
+                <option value="ფსიქოლოგია">ფსიქოლოგია</option>
+            </select>
+
+            <select id="price-select">
+                <option value="all">ნებისმიერი ფასი</option>
+                <option value="20">20 ₾-მდე</option>
+                <option value="30">30 ₾-მდე</option>
+                <option value="50">50 ₾-მდე</option>
+            </select>
+
+            <select id="sort-select">
+                <option value="default">სორტირება: სტანდარტული</option>
+                <option value="price-asc">ფასი: ზრდადობით</option>
+                <option value="price-desc">ფასი: კლებადობით</option>
+                <option value="rating-desc">მაღალი რეიტინგით</option>
+            </select>
+
+            <button id="reset-btn" class="btn-reset">გასუფთავება</button>
+        </section>
+
+        <section id="books-grid" class="books-grid"></section>
+
+        <section class="cart-section">
+            <h2>არჩეული წიგნები (კალათა)</h2>
+            <div id="cart-items" class="cart-items">
+                <p class="empty-msg">კალათა ცარიელია</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
