@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MockAPI Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>მონაცემთა მართვის პანელი (Dashboard)</h1>
+
+        <form id="item-form">
+            <input type="text" id="title" placeholder="სათაური..." required>
+            <input type="text" id="description" placeholder="აღწერა..." required>
+            <button type="submit">დამატება</button>
+        </form>
+
+        <div id="items-container" class="items-grid">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
