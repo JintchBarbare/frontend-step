@@ -1,0 +1,21 @@
+<div class="products-wrapper">
+  <h2>პროდუქტების კატალოგი</h2>
+
+  <div class="grid">
+    @for (item of productsList; track item.id) {
+      <div class="card">
+        <span class="category">{{ item.category }}</span>
+        <h3>{{ item.title }}</h3>
+        <p class="price">{{ item.price }} ₾</p>
+        
+        @if (item.inStock) {
+          <span class="badge in-stock">მარაგშია</span>
+        } @else {
+          <span class="badge out-of-stock">ამოწურულია</span>
+        }
+      </div>
+    } @empty {
+      <p>პროდუქტები ვერ მოიძებნა.</p>
+    }
+  </div>
+</div>
