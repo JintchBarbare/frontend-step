@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sign Up</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    padding: 40px 16px;
+  }
+  form {
+    background: #fff;
+    padding: 24px 32px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 420px;
+  }
+  h1 {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  label {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 4px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  input, select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  input.valid, select.valid {
+    border-color: #2ecc71;
+  }
+  input.invalid, select.invalid {
+    border-color: #d33;
+  }
+  button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    background: #2d6cdf;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #1f52ad;
+  }
+  .error-message {
+    display: block;
+    color: #d33;
+    font-size: 12px;
+    margin-top: 4px;
+  }
+</style>
+</head>
+<body>
+
+<form id="signupForm" novalidate>
+  <h1>Sign Up</h1>
+
+  
+  <label for="firstName">First Name*</label>
+  <input type="text" id="firstName" name="firstName" required>
+
+  <label for="lastName">Last Name*</label>
+  <input type="text" id="lastName" name="lastName" required>
+
+  <label for="age">Age*</label>
+  <input type="number" id="age" name="age" min="4" max="100" required>
+
+  <label for="email">Email*</label>
+  <input type="email" id="email" name="email" required>
+
+  <label for="password">Password*</label>
+  <input type="password" id="password" name="password" minlength="8" required>
+
+  <label for="address">Address*</label>
+  <input type="text" id="address" name="address" required>
+
+  <label for="phone">Phone*</label>
+  <input type="tel" id="phone" name="phone" required>
+
+  <label for="zipcode">Zipcode*</label>
+  <input type="text" id="zipcode" name="zipcode" required>
+
+  <label for="avatar">Avatar*</label>
+  <input type="text" id="avatar" name="avatar">
+
+  <label for="gender">Gender*</label>
+  <select id="gender" name="gender" required>
+    <option value="MALE">Male</option>
+    <option value="FEMALE">Female</option>
+    <option value="OTHER">Other</option>
+  </select>
+
+  <button type="submit">Create Account</button>
+</form>
+
+<script src="signup.js"></script>
+</body>
+</html>
