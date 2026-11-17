@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #efeff5;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        section {
+            width: 100%;
+            max-width: 640px;
+            position: relative;
+        }
+
+        .main-card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(24, 24, 38, 0.06);
+            padding-bottom: 50px;
+            overflow: hidden;
+        }
+
+        .tabs-header {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            padding: 24px 32px 0;
+            border-bottom: 1px solid #f0f0f5;
+        }
+
+        .tab {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-bottom: 18px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #848599;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.2s;
+        }
+
+        .tab.active {
+            color: #181826;
+        }
+
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2.5px;
+            background-color: #5b21b6;
+            border-radius: 2px;
+        }
+
+        .badge {
+            background-color: #f1f1f7;
+            color: #6b6c80;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 12px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0 32px;
+        }
+
+        li {
+            display: flex;
+            align-items: flex-start;
+            padding: 22px 0;
+            border-bottom: 1px solid #f0f0f5;
+            gap: 16px;
+            transition: opacity 0.2s;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        li.completed h2 {
+            text-decoration: line-through;
+            color: #9ca3af;
+        }
+
+        li input[type="checkbox"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 1.5px solid #d1d5db;
+            border-radius: 50%;
+            margin-top: 2px;
+            cursor: pointer;
+            position: relative;
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+
+        li input[type="checkbox"]:checked {
+            background-color: #5b21b6;
+            border-color: #5b21b6;
+        }
+
+        li input[type="checkbox"]:checked::after {
+            content: '✓';
+            position: absolute;
+            color: white;
+            font-size: 12px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .task-content {
+            flex: 1;
+        }
+
+        .task-content h2 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #181826;
+        }
+
+        .task-content p {
+            font-size: 13.5px;
+            color: #848599;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .task-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: #848599;
+        }
+
+        .task-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .task-meta .dot {
+            color: #d1d5db;
+        }
+
+        .task-meta .overdue {
+            color: #e11d48;
+            font-weight: 500;
+        }
+
+        .task-meta .overdue iconify-icon {
+            color: #e11d48;
+        }
+
+        iconify-icon {
+            font-size: 16px;
+            color: #848599;
+        }
+
+        .input-card {
+            background-color: #ffffff;
+            padding: 24px 28px;
+            border-radius: 14px;
+            box-shadow: 0 20px 45px rgba(24, 24, 38, 0.12);
+            margin: -30px -24px 0 -24px;
+            position: relative;
+            z-index: 10;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .input-card input[type="text"] {
+            width: 100%;
+            border: none;
+            outline: none;
+            font-size: 15px;
+            font-weight: 500;
+            color: #181826;
+            margin-bottom: 10px;
+            font-family: inherit;
+        }
+
+        .input-card input[type="text"]::placeholder {
+            color: #9ca3af;
+            font-weight: 400;
+        }
+
+        .input-card textarea {
+            width: 100%;
+            border: none;
+            outline: none;
+            font-size: 14px;
+            color: #6b6c80;
+            resize: none;
+            min-height: 55px;
+            margin-bottom: 16px;
+            font-family: inherit;
+        }
+
+        .input-card textarea::placeholder {
+            color: #9ca3af;
+        }
+
+        .extra-fields {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .extra-fields input,
+        .extra-fields select {
+            padding: 6px 10px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #4b5563;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .actions-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .left-buttons, .right-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 13.5px;
+            font-weight: 500;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.2s;
+            background-color: #ffffff;
+            color: #4b5563;
+            border: 1px solid #e5e7eb;
+        }
+
+        .btn:hover {
+            background-color: #f9fafb;
+        }
+
+        .btn-primary {
+            background-color: #5b21b6;
+            color: #ffffff;
+            border: 1px solid #5b21b6;
+            padding: 8px 18px;
+        }
+
+        .btn-primary:hover {
+            background-color: #4c1d95;
+        }
+
+        .btn-primary iconify-icon {
+            display: none;
+        }
+
+        .empty-state {
+            padding: 40px 32px;
+            text-align: center;
+            color: #848599;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <section>
+        <div class="main-card">
+            <div class="tabs-header">
+                <div class="tab" id="tab-notifications">Notifications</div>
+                <div class="tab active" id="tab-todo">
+                    Todo <span class="badge" id="todo-count">3</span>
+                </div>
+            </div>
+
+            <ul id="task-list"></ul>
+            <div id="notifications-view" class="empty-state hidden">
+                No new notifications right now.
+            </div>
+        </div>
+
+        <div class="input-card">
+            <input class="taskInput" type="text" placeholder="Task name here...">
+            <textarea placeholder="Description"></textarea>
+
+            <div class="extra-fields">
+                <input type="date" id="due-date-input" class="hidden">
+                <select id="assign-select" class="hidden">
+                    <option value="Esther Howard">Esther Howard</option>
+                    <option value="Brooklyn Simmons">Brooklyn Simmons</option>
+                    <option value="Cameron Williamson">Cameron Williamson</option>
+                    <option value="Leslie Alexander">Leslie Alexander</option>
+                </select>
+            </div>
+      
+            <div class="actions-row">
+                <div class="left-buttons">
+                    <button type="button" class="btn" id="btn-due-date">
+                        <iconify-icon icon="mdi:calendar-blank-outline"></iconify-icon>
+                        <span id="date-btn-text">Due Date</span>
+                    </button>
+                    <button type="button" class="btn" id="btn-assign">
+                        <iconify-icon icon="mdi:account-outline"></iconify-icon>
+                        <span id="assign-btn-text">Assign To</span>
+                    </button>
+                </div>
+
+                <div class="right-buttons">
+                    <button type="button" class="btn" id="btn-cancel">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="btn-add">Add Task</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+</html>
